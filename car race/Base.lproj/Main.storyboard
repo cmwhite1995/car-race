@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car2.png" translatesAutoresizingMaskIntoConstraints="NO" id="vvB-X0-0gV">
-                                <rect key="frame" x="259" y="451" width="70" height="181"/>
+                                <rect key="frame" x="258" y="442" width="73" height="178"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
