@@ -55,13 +55,23 @@ class ViewController: UIViewController {
                     UIImage(named:  "car1.png")!]
          road.image = UIImage.animatedImage(with: imageArray, duration: 1)
         
-        let when = DispatchTime.now() + 2
-        DispatchQueue.main.asyncAfter(deadline: when) {
+        let first = DispatchTime.now() + 2
+        let second = DispatchTime.now() + 4
+        DispatchQueue.main.asyncAfter(deadline: first) {
             let carView = UIImageView(image: nil)
             //Assign an image to the image view
             carView.image = UIImage(named: "car1.png")
             //Assign the size and position of the image view
             carView.frame = CGRect(x:100, y: 100, width: 30, height: 50)
+            //Add the image view to the main view
+            self.view.addSubview(carView)
+        }
+        DispatchQueue.main.asyncAfter(deadline: second) {
+            let carView = UIImageView(image: nil)
+            //Assign an image to the image view
+            carView.image = UIImage(named: "car1.png")
+            //Assign the size and position of the image view
+            carView.frame = CGRect(x:300, y: 100, width: 30, height: 50)
             //Add the image view to the main view
             self.view.addSubview(carView)
         }
