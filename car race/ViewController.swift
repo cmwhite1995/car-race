@@ -57,6 +57,8 @@ class ViewController: UIViewController {
         
         let first = DispatchTime.now() + 2
         let second = DispatchTime.now() + 4
+        let end = DispatchTime.now() + 10
+
         DispatchQueue.main.asyncAfter(deadline: first) {
             let carView = UIImageView(image: nil)
             //Assign an image to the image view
@@ -74,6 +76,10 @@ class ViewController: UIViewController {
             carView.frame = CGRect(x:300, y: 100, width: 30, height: 50)
             //Add the image view to the main view
             self.view.addSubview(carView)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: end){
+            exit(0)
         }
     
     }
