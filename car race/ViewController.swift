@@ -23,7 +23,11 @@ class ViewController: UIViewController {
         recognizer.setTranslation(CGPoint.zero, in: self.view)
     }
     
-    
+  //  func restart(){
+   //     gameover.isHidden = true
+   //     playercar position = X=489 y = 158
+   //     timer = 0
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         var carArray:   [UIImage]!
@@ -57,7 +61,7 @@ class ViewController: UIViewController {
         
         let first = DispatchTime.now() + 2
         let second = DispatchTime.now() + 4
-        let end = DispatchTime.now() + 10
+        let GameOver = DispatchTime.now() + 20
 
         DispatchQueue.main.asyncAfter(deadline: first) {
             let carView = UIImageView(image: nil)
@@ -78,8 +82,13 @@ class ViewController: UIViewController {
             self.view.addSubview(carView)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: end){
-            exit(0)
+        DispatchQueue.main.asyncAfter(deadline: GameOver){
+            //Create a new image view and assign an image
+            let gameOver = UIImageView(image: UIImage(named: "game_over.jpg"))
+            //Make this image view fulfil the screen
+            gameOver.frame = UIScreen.main.bounds
+            //Add the image view to the main view
+            self.view.addSubview(gameOver)
         }
     
     }
