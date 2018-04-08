@@ -23,11 +23,11 @@ class ViewController: UIViewController {
         recognizer.setTranslation(CGPoint.zero, in: self.view)
     }
     
-  //  func restart(){
-   //     gameover.isHidden = true
-   //     playercar position = X=489 y = 158
-   //     timer = 0
-    }
+  /*  func restart(){
+        gameover.isHidden = true
+        playercar position = X=489 y = 158
+        timer = 0
+      } */
     override func viewDidLoad() {
         super.viewDidLoad()
         var carArray:   [UIImage]!
@@ -60,12 +60,15 @@ class ViewController: UIViewController {
          road.image = UIImage.animatedImage(with: imageArray, duration: 1)
         
         let first = DispatchTime.now() + 2
-        let second = DispatchTime.now() + 4
+        let second = DispatchTime.now() + 2
         let GameOver = DispatchTime.now() + 20
 
         DispatchQueue.main.asyncAfter(deadline: first) {
+            
+            
             let carView = UIImageView(image: nil)
             //Assign an image to the image view
+            
             carView.image = UIImage(named: "car1.png")
             //Assign the size and position of the image view
             carView.frame = CGRect(x:100, y: 100, width: 30, height: 50)
@@ -73,13 +76,22 @@ class ViewController: UIViewController {
             self.view.addSubview(carView)
         }
         DispatchQueue.main.asyncAfter(deadline: second) {
-            let carView = UIImageView(image: nil)
+          /*  let carView = UIImageView(image: nil)
             //Assign an image to the image view
             carView.image = UIImage(named: "car1.png")
             //Assign the size and position of the image view
             carView.frame = CGRect(x:300, y: 100, width: 30, height: 50)
             //Add the image view to the main view
             self.view.addSubview(carView)
+        */
+            
+           
+                let imageView = UIImageView(image: nil)
+                imageView.image = carArray[0]
+                imageView.frame = CGRect(x: 100, y: 300, width:30, height:50)
+                self.view.addSubview(imageView)
+                
+            
         }
         
         DispatchQueue.main.asyncAfter(deadline: GameOver){
