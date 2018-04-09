@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12250F9E207903D6006098FA /* game_over.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12250F9D207903D6006098FA /* game_over.jpg */; };
+		12250FA0207BB3A8006098FA /* play_again.png in Resources */ = {isa = PBXBuildFile; fileRef = 12250F9F207BB3A7006098FA /* play_again.png */; };
 		1251B71D204741E700BE3B00 /* road7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1251B70A204741E400BE3B00 /* road7.png */; };
 		1251B71E204741E700BE3B00 /* road20.png in Resources */ = {isa = PBXBuildFile; fileRef = 1251B70B204741E400BE3B00 /* road20.png */; };
 		1251B71F204741E700BE3B00 /* road16.png in Resources */ = {isa = PBXBuildFile; fileRef = 1251B70C204741E400BE3B00 /* road16.png */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		12250F9D207903D6006098FA /* game_over.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = game_over.jpg; path = images/game_over.jpg; sourceTree = "<group>"; };
+		12250F9F207BB3A7006098FA /* play_again.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_again.png; path = images/play_again.png; sourceTree = "<group>"; };
 		1251B70A204741E400BE3B00 /* road7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = road7.png; path = images/road7.png; sourceTree = "<group>"; };
 		1251B70B204741E400BE3B00 /* road20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = road20.png; path = images/road20.png; sourceTree = "<group>"; };
 		1251B70C204741E400BE3B00 /* road16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = road16.png; path = images/road16.png; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				129B829F2043411900734327 /* AppDelegate.swift */,
 				129B82A12043411900734327 /* ViewController.swift */,
 				129B82A32043411900734327 /* Main.storyboard */,
+				12250F9F207BB3A7006098FA /* play_again.png */,
 				12250F9D207903D6006098FA /* game_over.jpg */,
 				12A8607920434748009AC9B5 /* road1.png */,
 				1251B711204741E500BE3B00 /* road2.png */,
@@ -209,6 +212,7 @@
 				1251B721204741E700BE3B00 /* road10.png in Resources */,
 				1251B72E204741E700BE3B00 /* road18.png in Resources */,
 				1251B720204741E700BE3B00 /* road12.png in Resources */,
+				12250FA0207BB3A8006098FA /* play_again.png in Resources */,
 				1251B728204741E700BE3B00 /* road4.png in Resources */,
 				129B82A52043411900734327 /* Main.storyboard in Resources */,
 				1251B723204741E700BE3B00 /* road8.png in Resources */,

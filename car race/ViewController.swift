@@ -11,7 +11,18 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var road: UIImageView!
    // @IBOutlet weak var BlueCar: UIImageView!
+    
+    @IBOutlet weak var playAgain: UIButton!
+    @IBOutlet weak var gameOver: UIImageView!
     @IBOutlet weak var redcar: UIImageView!
+    @IBAction func PlayAgainAction(_ sender: Any) {
+        self.road.isHidden = false
+        self.redcar.isHidden = false
+        self.playAgain.isHidden = true
+        self.gameOver.isHidden = true
+        // reset the timer
+        
+    }
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
     
         
@@ -30,6 +41,7 @@ class ViewController: UIViewController {
       } */
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         var carArray:   [UIImage]!
         var imageArray: [UIImage]!
         
@@ -61,7 +73,7 @@ class ViewController: UIViewController {
         
         let first = DispatchTime.now() + 2
         let second = DispatchTime.now() + 2
-        let GameOver = DispatchTime.now() + 20
+        let GameOver = DispatchTime.now() + 5
 
         DispatchQueue.main.asyncAfter(deadline: first) {
             
@@ -95,12 +107,20 @@ class ViewController: UIViewController {
         }
         
         DispatchQueue.main.asyncAfter(deadline: GameOver){
+            self.view.backgroundColor = UIColor.black
+            self.road.isHidden = true
+            self.redcar.isHidden = true
+            self.playAgain.isHidden = false
+            self.gameOver.isHidden = false
+            
+        //    self.replayButton.isHidden = false
             //Create a new image view and assign an image
-            let gameOver = UIImageView(image: UIImage(named: "game_over.jpg"))
+           // let gameOver = UIImageView(image: UIImage(named: "game_over.jpg"))
             //Make this image view fulfil the screen
-            gameOver.frame = UIScreen.main.bounds
+           // gameOver.frame = UIScreen.main.bounds
             //Add the image view to the main view
-            self.view.addSubview(gameOver)
+            
+           // self.view.addSubview(gameOver)
         }
     
     }

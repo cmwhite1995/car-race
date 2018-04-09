@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="road1.png" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-BP-lcj">
-                                <rect key="frame" x="0.0" y="0.0" width="421" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="422" height="739"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car2.png" translatesAutoresizingMaskIntoConstraints="NO" id="vvB-X0-0gV">
@@ -30,11 +30,25 @@
                                     <outletCollection property="gestureRecognizers" destination="CKs-8S-mYv" appends="YES" id="ilM-uz-g8c"/>
                                 </connections>
                             </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="game_over.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="UAk-xv-DlU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="239"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNw-Ew-2MV">
+                                <rect key="frame" x="167" y="339" width="76" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="play_again.png"/>
+                                <connections>
+                                    <action selector="PlayAgainAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CT3-Uk-rer"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="gameOver" destination="UAk-xv-DlU" id="CUx-Bd-kxz"/>
+                        <outlet property="playAgain" destination="jNw-Ew-2MV" id="YMj-Mp-5hu"/>
                         <outlet property="redcar" destination="vvB-X0-0gV" id="TG8-io-dp4"/>
                         <outlet property="road" destination="wyg-BP-lcj" id="CQo-pY-4RS"/>
                     </connections>
@@ -52,6 +66,8 @@
     </scenes>
     <resources>
         <image name="car2.png" width="300" height="600"/>
+        <image name="game_over.jpg" width="450" height="338"/>
+        <image name="play_again.png" width="216" height="218"/>
         <image name="road1.png" width="433" height="914"/>
     </resources>
 </document>
