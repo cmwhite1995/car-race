@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="422" height="739"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car2.png" translatesAutoresizingMaskIntoConstraints="NO" id="vvB-X0-0gV">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car0.png" translatesAutoresizingMaskIntoConstraints="NO" id="vvB-X0-0gV">
                                 <rect key="frame" x="269" y="489" width="70" height="158"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -65,7 +65,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="car2.png" width="300" height="600"/>
+        <image name="car0.png" width="382" height="757"/>
         <image name="game_over.jpg" width="450" height="338"/>
         <image name="play_again.png" width="216" height="218"/>
         <image name="road1.png" width="433" height="914"/>

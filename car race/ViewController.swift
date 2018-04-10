@@ -42,9 +42,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var carArray:   [UIImage]!
         var imageArray: [UIImage]!
-        
+        let randomCar = [1,2,3,4,5,6]
         
         imageArray = [UIImage(named: "road1.png")!,
                       UIImage(named: "road2.png")!,
@@ -66,16 +65,50 @@ class ViewController: UIViewController {
                       UIImage(named: "road18.png")!,
                       UIImage(named: "road19.png")!,
                       UIImage(named: "road20.png")!]
+        road.image = UIImage.animatedImage(with: imageArray, duration: 1)
         
-        carArray = [UIImage(named:  "car0.png")!,
-                    UIImage(named:  "car1.png")!]
-         road.image = UIImage.animatedImage(with: imageArray, duration: 1)
+            for index in 0...5
+            {
+                let delay = Double(randomCar[index])
+                let when = DispatchTime.now() + delay
+                
+                DispatchQueue.main.asyncAfter(deadline: when)
+                {
+                    let randomNum = arc4random_uniform(7)
+                    let carView = UIImageView(image: nil)
+                    
+                    switch (randomNum)
+                    {
+                        case 1:
+                            carView.image = UIImage(named: "car1.png")
+                        case 2:
+                            carView.image = UIImage(named: "car2.png")
+                        case 3:
+                            carView.image = UIImage(named: "car3.png")
+                        case 4:
+                            carView.image = UIImage(named: "car4.png")
+                        case 5:
+                            carView.image = UIImage(named: "car5.png")
+                        case 6:
+                            carView.image = UIImage(named: "car6.png")
+                        default:
+                            carView.image = UIImage(named: "car1.png")
+                        
+                        
+                    }
+                    carView.frame = CGRect(x:100, y: 100, width: 30, height: 50)
+                    self.view.addSubview(carView)
+                }
+            }
+        
+        
+        
+        
         
         let first = DispatchTime.now() + 2
         let second = DispatchTime.now() + 2
         let GameOver = DispatchTime.now() + 5
-
-        DispatchQueue.main.asyncAfter(deadline: first) {
+    /*    DispatchQueue.main.asyncAfter(deadline: first) {
             
             
             let carView = UIImageView(image: nil)
@@ -87,26 +120,22 @@ class ViewController: UIViewController {
             //Add the image view to the main view
             self.view.addSubview(carView)
         }
-        DispatchQueue.main.asyncAfter(deadline: second) {
-          /*  let carView = UIImageView(image: nil)
+       DispatchQueue.main.asyncAfter(deadline: second) {
+            let carView = UIImageView(image: nil)
             //Assign an image to the image view
             carView.image = UIImage(named: "car1.png")
             //Assign the size and position of the image view
             carView.frame = CGRect(x:300, y: 100, width: 30, height: 50)
             //Add the image view to the main view
             self.view.addSubview(carView)
-        */
+ 
             
            
-                let imageView = UIImageView(image: nil)
-                imageView.image = carArray[0]
-                imageView.frame = CGRect(x: 100, y: 300, width:30, height:50)
-                self.view.addSubview(imageView)
-                
+            
             
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: GameOver){
+ 
+      DispatchQueue.main.asyncAfter(deadline: GameOver){
             self.view.backgroundColor = UIColor.black
             self.road.isHidden = true
             self.redcar.isHidden = true
@@ -122,7 +151,7 @@ class ViewController: UIViewController {
             
            // self.view.addSubview(gameOver)
         }
-    
+    */
     }
 
 
@@ -130,7 +159,5 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
