@@ -74,10 +74,11 @@ class ViewController: UIViewController {
                 
                 DispatchQueue.main.asyncAfter(deadline: when)
                 {
-                    let randomNum = arc4random_uniform(7)
+                    let randomCar = arc4random_uniform(6) + 1
+                    let xPosition = arc4random_uniform(350) + 50
                     let carView = UIImageView(image: nil)
                     
-                    switch (randomNum)
+                    switch (randomCar)
                     {
                         case 1:
                             carView.image = UIImage(named: "car1.png")
@@ -96,7 +97,7 @@ class ViewController: UIViewController {
                         
                         
                     }
-                    carView.frame = CGRect(x:100, y: 100, width: 30, height: 50)
+                    carView.frame = CGRect(x:Int(xPosition), y: 100, width: 30, height: 50)
                     self.view.addSubview(carView)
                 }
             }
