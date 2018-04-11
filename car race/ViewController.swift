@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     var dynamicAnimator: UIDynamicAnimator!
     var dynamicItemBehavior: UIDynamicItemBehavior!
+     var collisionBehavior: UICollisionBehavior!
     @IBOutlet weak var road: UIImageView!
     @IBOutlet weak var playAgain: UIButton!
     @IBOutlet weak var gameOver: UIImageView!
@@ -75,45 +76,49 @@ class ViewController: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: when)
                 {
                     let randomCar = arc4random_uniform(6) + 1
-                    let xPosition = arc4random_uniform(350) + 50
+                    let xPosition = arc4random_uniform(340) + 50
                     let carView = UIImageView(image: nil)
                     
                     switch (randomCar)
                     {
                         case 1:
                             carView.image = UIImage(named: "car1.png")
+                            break
                         case 2:
                             carView.image = UIImage(named: "car2.png")
+                            break
                         case 3:
                             carView.image = UIImage(named: "car3.png")
+                            break
                         case 4:
                             carView.image = UIImage(named: "car4.png")
+                            break
                         case 5:
                             carView.image = UIImage(named: "car5.png")
+                            break
                         case 6:
                             carView.image = UIImage(named: "car6.png")
+                            break
                         default:
                             carView.image = UIImage(named: "car1.png")
-                        
-                        
+                            break
                     }
-                    carView.frame = CGRect(x:Int(xPosition), y: 20, width: 30, height: 50)
+                    
+                    carView.frame = CGRect(x:Int(xPosition), y: 20, width: 40, height: 50)
                     self.view.addSubview(carView)
                     self.dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
                     self.dynamicItemBehavior = UIDynamicItemBehavior(items: [carView])
                     self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 0, y: 760), for: carView)
                     self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
+                    self.collisionBehavior = UICollisionBehavior(items: [carView])
+                    self.collisionBehavior.translatesReferenceBoundsIntoBoundary = true
+                    self.dynamicAnimator.addBehavior(self.collisionBehavior)
+                    self.collisionBehavior.addBoundary(withIdentifier: "car0.png" as
+                        NSCopying, for: UIBezierPath(rect: self.redcar.frame))
                 }
             }
-        
-        
-        
-        
-        
-       
-        let GameOver = DispatchTime.now() + 20
+      //  let GameOver = DispatchTime.now() + 20
 /*
- 
       DispatchQueue.main.asyncAfter(deadline: GameOver){
             self.view.backgroundColor = UIColor.black
             self.road.isHidden = true
@@ -132,8 +137,6 @@ class ViewController: UIViewController {
         }
     */
     }
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
