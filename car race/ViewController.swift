@@ -9,9 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var dynamicAnimator: UIDynamicAnimator!
+    var dynamicItemBehavior: UIDynamicItemBehavior!
     @IBOutlet weak var road: UIImageView!
-   // @IBOutlet weak var BlueCar: UIImageView!
-    
     @IBOutlet weak var playAgain: UIButton!
     @IBOutlet weak var gameOver: UIImageView!
     @IBOutlet weak var redcar: UIImageView!
@@ -97,8 +97,12 @@ class ViewController: UIViewController {
                         
                         
                     }
-                    carView.frame = CGRect(x:Int(xPosition), y: 100, width: 30, height: 50)
+                    carView.frame = CGRect(x:Int(xPosition), y: 20, width: 30, height: 50)
                     self.view.addSubview(carView)
+                    self.dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
+                    self.dynamicItemBehavior = UIDynamicItemBehavior(items: [carView])
+                    self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 0, y: 760), for: carView)
+                    self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
                 }
             }
         
@@ -106,35 +110,9 @@ class ViewController: UIViewController {
         
         
         
-        let first = DispatchTime.now() + 2
-        let second = DispatchTime.now() + 2
-        let GameOver = DispatchTime.now() + 5
-    /*    DispatchQueue.main.asyncAfter(deadline: first) {
-            
-            
-            let carView = UIImageView(image: nil)
-            //Assign an image to the image view
-            
-            carView.image = UIImage(named: "car1.png")
-            //Assign the size and position of the image view
-            carView.frame = CGRect(x:100, y: 100, width: 30, height: 50)
-            //Add the image view to the main view
-            self.view.addSubview(carView)
-        }
-       DispatchQueue.main.asyncAfter(deadline: second) {
-            let carView = UIImageView(image: nil)
-            //Assign an image to the image view
-            carView.image = UIImage(named: "car1.png")
-            //Assign the size and position of the image view
-            carView.frame = CGRect(x:300, y: 100, width: 30, height: 50)
-            //Add the image view to the main view
-            self.view.addSubview(carView)
- 
-            
-           
-            
-            
-        }
+       
+        let GameOver = DispatchTime.now() + 20
+/*
  
       DispatchQueue.main.asyncAfter(deadline: GameOver){
             self.view.backgroundColor = UIColor.black
