@@ -104,6 +104,7 @@ class ViewController: UIViewController {
                             break
                     }
                     
+                   
                     carView.frame = CGRect(x:Int(xPosition), y: 20, width: 40, height: 50)
                     self.view.addSubview(carView)
                     self.dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
@@ -115,6 +116,9 @@ class ViewController: UIViewController {
                     self.dynamicAnimator.addBehavior(self.collisionBehavior)
                     self.collisionBehavior.addBoundary(withIdentifier: "car0.png" as
                         NSCopying, for: UIBezierPath(rect: self.redcar.frame))
+                    if(self.redcar.frame.intersects(carView.frame)){
+                        carView.image = nil
+                    }
                 }
             }
       //  let GameOver = DispatchTime.now() + 20
