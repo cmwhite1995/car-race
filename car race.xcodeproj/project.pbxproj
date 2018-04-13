@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120C1C0A207FB06800177D26 /* DraggedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C1C09207FB06800177D26 /* DraggedImageView.swift */; };
 		12250F9E207903D6006098FA /* game_over.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12250F9D207903D6006098FA /* game_over.jpg */; };
 		12250FA0207BB3A8006098FA /* play_again.png in Resources */ = {isa = PBXBuildFile; fileRef = 12250F9F207BB3A7006098FA /* play_again.png */; };
 		12250FA5207D1B2D006098FA /* car3.png in Resources */ = {isa = PBXBuildFile; fileRef = 12250FA1207D1B2C006098FA /* car3.png */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		120C1C09207FB06800177D26 /* DraggedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DraggedImageView.swift; path = ../DraggedImageView.swift; sourceTree = "<group>"; };
 		12250F9D207903D6006098FA /* game_over.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = game_over.jpg; path = images/game_over.jpg; sourceTree = "<group>"; };
 		12250F9F207BB3A7006098FA /* play_again.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_again.png; path = images/play_again.png; sourceTree = "<group>"; };
 		12250FA1207D1B2C006098FA /* car3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car3.png; path = images/car3.png; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		129B829E2043411900734327 /* car race */ = {
 			isa = PBXGroup;
 			children = (
+				120C1C09207FB06800177D26 /* DraggedImageView.swift */,
 				129B829F2043411900734327 /* AppDelegate.swift */,
 				129B82A12043411900734327 /* ViewController.swift */,
 				129B82A32043411900734327 /* Main.storyboard */,
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				129B82A22043411900734327 /* ViewController.swift in Sources */,
+				120C1C0A207FB06800177D26 /* DraggedImageView.swift in Sources */,
 				129B82A02043411900734327 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
