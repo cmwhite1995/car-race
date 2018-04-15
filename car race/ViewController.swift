@@ -17,7 +17,7 @@ class ViewController: UIViewController, subviewDelegate {
     }
     var dynamicAnimator: UIDynamicAnimator!
     var dynamicItemBehavior: UIDynamicItemBehavior!
-     var collisionBehavior: UICollisionBehavior!
+    var collisionBehavior: UICollisionBehavior!
     @IBOutlet weak var Player: DraggedImageView!
     @IBOutlet weak var road: UIImageView!
     @IBOutlet weak var playAgain: UIButton!
@@ -34,12 +34,12 @@ class ViewController: UIViewController, subviewDelegate {
         gameOver.isHidden = true
         FinalScore.isHidden = true
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        var game_over = false
         var pointIncrease = 0
         var imageArray: [UIImage]!
-        let randomCar = [1,2,3,4,5,6]
+        let randomCar = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
         imageArray = [UIImage(named: "road1.png")!,
                       UIImage(named: "road2.png")!,
                       UIImage(named: "road3.png")!,
@@ -62,14 +62,13 @@ class ViewController: UIViewController, subviewDelegate {
                       UIImage(named: "road20.png")!]
         road.image = UIImage.animatedImage(with: imageArray, duration: 1)
         
-            for index in 0...5{
+            for index in 0...19{
                 let delay = Double(randomCar[index])
                 let when = DispatchTime.now() + delay
-                
                 DispatchQueue.main.asyncAfter(deadline: when)
                 {
                     let randomCar = arc4random_uniform(6) + 1
-                    let xPosition = arc4random_uniform(300) + 50
+                    let xPosition = arc4random_uniform(250) + 50
                     let carView = UIImageView(image: nil)
                    
                     switch (randomCar){
@@ -95,21 +94,21 @@ class ViewController: UIViewController, subviewDelegate {
                             carView.image = UIImage(named: "car1.png")
                             //break
                     }
-                    carView.frame = CGRect(x:Int(xPosition), y: 20, width: 84, height: 134)
-                    self.view.addSubview(carView)
-                    final_score()
-                    self.dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
-                    self.dynamicItemBehavior = UIDynamicItemBehavior(items: [carView])
-                    self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 0, y: 800), for: carView)
-                    self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
-                    self.collisionBehavior = UICollisionBehavior(items: [carView])
-                    //self.collisionBehavior.translatesReferenceBoundsIntoBoundary = true
-                    //self.dynamicAnimator.addBehavior(self.collisionBehavior)
+                        carView.frame = CGRect(x:Int(xPosition), y: 20, width: 84, height: 134)
+                        self.view.addSubview(carView)
+                        pointIncrease = pointIncrease + 10
+                        self.Points.text = String(pointIncrease)
+                        self.dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
+                        self.dynamicItemBehavior = UIDynamicItemBehavior(items: [carView])
+                        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 0, y: 800), for: carView)
+                        self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
+                        self.collisionBehavior = UICollisionBehavior(items: [carView])
+                        //self.collisionBehavior.translatesReferenceBoundsIntoBoundary = true
+                        //self.dynamicAnimator.addBehavior(self.collisionBehavior)
                 }
             }
-       let GameOver = DispatchTime.now() + 20
-
-      DispatchQueue.main.asyncAfter(deadline: GameOver){
+       let GameOver = DispatchTime.now() + 5
+            DispatchQueue.main.asyncAfter(deadline: GameOver){
             self.view.backgroundColor = UIColor.black
             self.Points.text = "0"
             self.Points.isHidden = true
@@ -119,10 +118,6 @@ class ViewController: UIViewController, subviewDelegate {
             self.gameOver.isHidden = false
             self.FinalScore.text = (self.FinalScore.text! + String(pointIncrease))
             self.FinalScore.isHidden = false
-        }
-        func final_score(){
-            pointIncrease = pointIncrease + 10
-            self.Points.text = String(pointIncrease)
         }
     }
     override func didReceiveMemoryWarning() {

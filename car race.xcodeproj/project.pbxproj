@@ -38,6 +38,7 @@
 		129B82A52043411900734327 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 129B82A32043411900734327 /* Main.storyboard */; };
 		129B82A72043411900734327 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 129B82A62043411900734327 /* Assets.xcassets */; };
 		129B82AA2043411900734327 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 129B82A82043411900734327 /* LaunchScreen.storyboard */; };
+		12A4DD5B2081515000A427AC /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A4DD5A2081515000A427AC /* replay.png */; };
 		12A86078204346AE009AC9B5 /* car0.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A86077204346AE009AC9B5 /* car0.png */; };
 		12A8607A20434748009AC9B5 /* road1.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A8607920434748009AC9B5 /* road1.png */; };
 		12A8607C20434B63009AC9B5 /* car2.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A8607B20434B63009AC9B5 /* car2.png */; };
@@ -78,6 +79,7 @@
 		129B82A62043411900734327 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		129B82A92043411900734327 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		129B82AB2043411900734327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12A4DD5A2081515000A427AC /* replay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = replay.png; sourceTree = "<group>"; };
 		12A86077204346AE009AC9B5 /* car0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car0.png; path = images/car0.png; sourceTree = "<group>"; };
 		12A8607920434748009AC9B5 /* road1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = road1.png; path = images/road1.png; sourceTree = "<group>"; };
 		12A8607B20434B63009AC9B5 /* car2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car2.png; path = images/car2.png; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				129B82A12043411900734327 /* ViewController.swift */,
 				129B82A32043411900734327 /* Main.storyboard */,
 				12250F9F207BB3A7006098FA /* play_again.png */,
+				12A4DD5A2081515000A427AC /* replay.png */,
 				12250F9D207903D6006098FA /* game_over.jpg */,
 				12A8607920434748009AC9B5 /* road1.png */,
 				1251B711204741E500BE3B00 /* road2.png */,
@@ -241,6 +244,7 @@
 				12A8607E20434B89009AC9B5 /* car1.png in Resources */,
 				1251B726204741E700BE3B00 /* road19.png in Resources */,
 				1251B724204741E700BE3B00 /* road2.png in Resources */,
+				12A4DD5B2081515000A427AC /* replay.png in Resources */,
 				12A8607C20434B63009AC9B5 /* car2.png in Resources */,
 				12250FA5207D1B2D006098FA /* car3.png in Resources */,
 				1251B71E204741E700BE3B00 /* road20.png in Resources */,

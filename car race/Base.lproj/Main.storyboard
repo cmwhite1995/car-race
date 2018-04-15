@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,30 +13,27 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="car_race" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wai-89-2LX"/>
+                        <viewControllerLayoutGuide type="bottom" id="RpE-EB-duT"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="game_over.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="UAk-xv-DlU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="239"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="road1.png" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-BP-lcj">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="road1.png" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-BP-lcj">
-                                <rect key="frame" x="0.0" y="0.0" width="422" height="739"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNw-Ew-2MV">
-                                <rect key="frame" x="167" y="339" width="76" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="play_again.png"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNw-Ew-2MV">
+                                <rect key="frame" x="149" y="349" width="76" height="60"/>
+                                <state key="normal" title="Button" image="replay.png"/>
                                 <connections>
                                     <action selector="PlayAgainAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CT3-Uk-rer"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car0.png" translatesAutoresizingMaskIntoConstraints="NO" id="x3M-jz-yP8" userLabel="Player" customClass="DraggedImageView" customModule="car_race" customModuleProvider="target">
-                                <rect key="frame" x="247" y="513" width="84" height="134"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JoA-Eg-5Yx" userLabel="Points">
                                 <rect key="frame" x="293" y="0.0" width="66" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -45,16 +41,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Final Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6O3-fj-HBL">
-                                <rect key="frame" x="89" y="270" width="233" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6O3-fj-HBL">
+                                <rect key="frame" x="64" y="439" width="233" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="game_over.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="UAk-xv-DlU">
+                                <rect key="frame" x="16" y="28" width="343" height="251"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car0.png" translatesAutoresizingMaskIntoConstraints="NO" id="x3M-jz-yP8" userLabel="Player" customClass="DraggedImageView" customModule="car_race" customModuleProvider="target">
+                                <rect key="frame" x="149" y="527" width="62" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="jNw-Ew-2MV" secondAttribute="trailing" constant="150" id="1g0-Qm-2Bp"/>
+                            <constraint firstItem="wyg-BP-lcj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="FT1-I9-qrc"/>
+                            <constraint firstItem="jNw-Ew-2MV" firstAttribute="top" secondItem="wai-89-2LX" secondAttribute="bottom" constant="329" id="G8b-kC-Yzx"/>
+                            <constraint firstItem="6O3-fj-HBL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="64" id="MIv-G8-hZR"/>
+                            <constraint firstItem="6O3-fj-HBL" firstAttribute="top" secondItem="jNw-Ew-2MV" secondAttribute="bottom" constant="30" id="Nak-Uq-yHb"/>
+                            <constraint firstItem="RpE-EB-duT" firstAttribute="top" secondItem="jNw-Ew-2MV" secondAttribute="bottom" constant="258" id="QCt-h3-u3r"/>
+                            <constraint firstItem="wyg-BP-lcj" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="WlX-SX-Gb1"/>
+                            <constraint firstItem="UAk-xv-DlU" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="YRQ-08-Y9s"/>
+                            <constraint firstItem="RpE-EB-duT" firstAttribute="top" secondItem="6O3-fj-HBL" secondAttribute="bottom" constant="185" id="exs-yI-RAC"/>
+                            <constraint firstItem="jNw-Ew-2MV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="149" id="jZQ-GT-1h9"/>
+                            <constraint firstAttribute="trailing" secondItem="6O3-fj-HBL" secondAttribute="trailing" constant="78" id="jlQ-FQ-xxs"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="FinalScore" destination="6O3-fj-HBL" id="UPs-1z-yt0"/>
@@ -67,13 +81,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="29.23538230884558"/>
+            <point key="canvasLocation" x="15.5" y="32.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="car0.png" width="382" height="757"/>
         <image name="game_over.jpg" width="450" height="338"/>
-        <image name="play_again.png" width="216" height="218"/>
+        <image name="replay.png" width="894" height="894"/>
         <image name="road1.png" width="433" height="914"/>
     </resources>
 </document>
