@@ -34,12 +34,15 @@ class ViewController: UIViewController, subviewDelegate {
         gameOver.isHidden = true
         FinalScore.isHidden = true
     }
+     let randomCar = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     override func viewDidLoad() {
         super.viewDidLoad()
-        var game_over = false
+        dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
+        dynamicItemBehavior = UIDynamicItemBehavior(items: [])
         var pointIncrease = 0
         var imageArray: [UIImage]!
-        let randomCar = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+      
+      //  let randomCar = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
         imageArray = [UIImage(named: "road1.png")!,
                       UIImage(named: "road2.png")!,
                       UIImage(named: "road3.png")!,
@@ -67,47 +70,49 @@ class ViewController: UIViewController, subviewDelegate {
                 let when = DispatchTime.now() + delay
                 DispatchQueue.main.asyncAfter(deadline: when)
                 {
-                    let randomCar = arc4random_uniform(6) + 1
+                    let random_Car = arc4random_uniform(6) + 1
                     let xPosition = arc4random_uniform(250) + 50
                     let carView = UIImageView(image: nil)
                    
-                    switch (randomCar){
+                    switch (random_Car){
                         case 1:
                             carView.image = UIImage(named: "car1.png")
-                            //break
+                        
                         case 2:
                             carView.image = UIImage(named: "car2.png")
-                            //break
+                        
                         case 3:
                             carView.image = UIImage(named: "car3.png")
-                            //break
+                        
                         case 4:
                             carView.image = UIImage(named: "car4.png")
-                            //break
+                        
                         case 5:
                             carView.image = UIImage(named: "car5.png")
-                            //break
+                        
                         case 6:
                             carView.image = UIImage(named: "car6.png")
-                            //break
+                        
                         default:
                             carView.image = UIImage(named: "car1.png")
-                            //break
                     }
                         carView.frame = CGRect(x:Int(xPosition), y: 20, width: 84, height: 134)
-                        self.view.addSubview(carView)
-                        pointIncrease = pointIncrease + 10
-                        self.Points.text = String(pointIncrease)
-                        self.dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
-                        self.dynamicItemBehavior = UIDynamicItemBehavior(items: [carView])
-                        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 0, y: 800), for: carView)
-                        self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
-                        self.collisionBehavior = UICollisionBehavior(items: [carView])
-                        //self.collisionBehavior.translatesReferenceBoundsIntoBoundary = true
-                        //self.dynamicAnimator.addBehavior(self.collisionBehavior)
+                    
+                    self.view.addSubview(carView)
+                    self.view.bringSubview(toFront: carView)
+                    self.dynamicItemBehavior.addItem(carView)
+                    self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 0, y: 800), for: carView)
+                    self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
+                    pointIncrease = pointIncrease + 10
+                    self.Points.text = String(pointIncrease)
+                    
+                    self.collisionBehavior = UICollisionBehavior(items: [carView,self.Player])
+                       self.collisionBehavior.translatesReferenceBoundsIntoBoundary = true
+                       self.dynamicAnimator.addBehavior(self.collisionBehavior)
+ 
                 }
             }
-       let GameOver = DispatchTime.now() + 5
+       let GameOver = DispatchTime.now() + 21
             DispatchQueue.main.asyncAfter(deadline: GameOver){
             self.view.backgroundColor = UIColor.black
             self.Points.text = "0"
