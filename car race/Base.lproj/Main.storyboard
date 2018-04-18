@@ -51,7 +51,7 @@
                                 <rect key="frame" x="16" y="28" width="343" height="251"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car0.png" translatesAutoresizingMaskIntoConstraints="NO" id="x3M-jz-yP8" userLabel="Player" customClass="DraggedImageView" customModule="car_race" customModuleProvider="target">
-                                <rect key="frame" x="149" y="528" width="62" height="90"/>
+                                <rect key="frame" x="149" y="534" width="49" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>

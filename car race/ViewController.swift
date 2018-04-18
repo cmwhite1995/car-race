@@ -13,16 +13,10 @@ protocol subviewDelegate {
 
 class ViewController: UIViewController, subviewDelegate {
     func changeSomething() {
-   /*
-            if (self.Player.frame.intersects(carView.frame) == false){
-                collisionBehavior.removeBoundary(withIdentifier: "barrier" as NSCopying)
-            }
-            else if(self.Player.frame.intersects(carView.frame) == true){
-                self.collisionBehavior.addBoundary(withIdentifier: "barrier" as
-                    NSCopying, for: UIBezierPath(rect: self.Player.frame))
-                point_dncrease()
-         }
-  */
+        collisionBehavior.removeAllBoundaries()
+        self.collisionBehavior.addBoundary(withIdentifier: "barrier" as
+            NSCopying, for: UIBezierPath(rect: self.Player.frame))
+
         }
     
     var dynamicAnimator: UIDynamicAnimator!
@@ -35,7 +29,8 @@ class ViewController: UIViewController, subviewDelegate {
     @IBOutlet weak var Points: UILabel!
     @IBOutlet weak var FinalScore: UILabel!
     @IBAction func PlayAgainAction(_ sender: Any) {
-        viewDidLoad()
+        pointIncrease = 0
+        Points.text = "0"
         FinalScore.text = "Final Score:"
         road.isHidden = false
         Points.isHidden = false
@@ -43,6 +38,7 @@ class ViewController: UIViewController, subviewDelegate {
         playAgain.isHidden = true
         gameOver.isHidden = true
         FinalScore.isHidden = true
+        viewDidLoad()
     }
     
     var pointIncrease = 0
@@ -128,18 +124,24 @@ class ViewController: UIViewController, subviewDelegate {
                         default:
                             carView.image = UIImage(named: "car1.png")
                     }
-                    carView.frame = CGRect(x:Int(xPosition), y: 10, width: 60, height: 60)
+                    carView.frame = CGRect(x:Int(xPosition), y: 10, width: 40, height: 60)
                     self.view.addSubview(carView)
-                //    self.view.bringSubview(toFront: carView)
+                    self.view.bringSubview(toFront: carView)
+                    
+                    
                     self.dynamicItemBehavior.addItem(carView)
                     self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 0, y: 200), for: carView)
-                    self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
+                   //  self.collisionBehavior.addItem(carView)
+                   // self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
+                  
+                    
                     self.collisionBehavior = UICollisionBehavior(items: [carView])
-                    self.collisionBehavior.addBoundary(withIdentifier: "barrier" as
-                        NSCopying, for: UIBezierPath(rect: self.Player.frame))
-                   self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
-                   self.dynamicAnimator.addBehavior(self.collisionBehavior)
-                   self.point_Increase()
+                    self.collisionBehavior.translatesReferenceBoundsIntoBoundary = false
+                    
+                    
+                    self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
+                    self.dynamicAnimator.addBehavior(self.collisionBehavior)
+                    self.point_Increase()
                     
                     
                 }
