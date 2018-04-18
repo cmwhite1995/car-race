@@ -13,12 +13,18 @@ protocol subviewDelegate {
 
 class ViewController: UIViewController, subviewDelegate {
     func changeSomething() {
-        /*
-            if (self.Player.frame.intersects(carView.frame) == true){
-                point_dncrease()
+   /*
+            if (self.Player.frame.intersects(carView.frame) == false){
+                collisionBehavior.removeBoundary(withIdentifier: "barrier" as NSCopying)
             }
-        */
-    }
+            else if(self.Player.frame.intersects(carView.frame) == true){
+                self.collisionBehavior.addBoundary(withIdentifier: "barrier" as
+                    NSCopying, for: UIBezierPath(rect: self.Player.frame))
+                point_dncrease()
+         }
+  */
+        }
+    
     var dynamicAnimator: UIDynamicAnimator!
     var dynamicItemBehavior: UIDynamicItemBehavior!
     var collisionBehavior: UICollisionBehavior!
@@ -122,11 +128,11 @@ class ViewController: UIViewController, subviewDelegate {
                         default:
                             carView.image = UIImage(named: "car1.png")
                     }
-                    carView.frame = CGRect(x:Int(xPosition), y: 20, width: 60, height: 60)
+                    carView.frame = CGRect(x:Int(xPosition), y: 10, width: 60, height: 60)
                     self.view.addSubview(carView)
-                    self.view.bringSubview(toFront: carView)
+                //    self.view.bringSubview(toFront: carView)
                     self.dynamicItemBehavior.addItem(carView)
-                    self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 0, y: 600), for: carView)
+                    self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 0, y: 200), for: carView)
                     self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
                     self.collisionBehavior = UICollisionBehavior(items: [carView])
                     self.collisionBehavior.addBoundary(withIdentifier: "barrier" as
@@ -134,6 +140,8 @@ class ViewController: UIViewController, subviewDelegate {
                    self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
                    self.dynamicAnimator.addBehavior(self.collisionBehavior)
                    self.point_Increase()
+                    
+                    
                 }
             }
        let GameOver = DispatchTime.now() + 20
