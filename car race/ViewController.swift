@@ -13,7 +13,11 @@ protocol subviewDelegate {
 
 class ViewController: UIViewController, subviewDelegate {
     func changeSomething() {
-         self.collisionBehavior.removeAllBoundaries()
+        /*
+            if (self.Player.frame.intersects(carView.frame) == true){
+                point_dncrease()
+            }
+        */
     }
     var dynamicAnimator: UIDynamicAnimator!
     var dynamicItemBehavior: UIDynamicItemBehavior!
@@ -34,15 +38,37 @@ class ViewController: UIViewController, subviewDelegate {
         gameOver.isHidden = true
         FinalScore.isHidden = true
     }
-     let randomCar = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
+    
+    var pointIncrease = 0
+    let randomCar = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
+    
+    func game_Over(){
+        self.view.backgroundColor = UIColor.black
+        self.Points.text = "0"
+        self.Points.isHidden = true
+        self.road.isHidden = true
+        self.Player.isHidden = true
+        self.playAgain.isHidden = false
+        self.gameOver.isHidden = false
+        self.FinalScore.text = (self.FinalScore.text! + String(pointIncrease))
+        self.FinalScore.isHidden = false
+    }
+    func point_Increase(){
+        pointIncrease = pointIncrease + 10
+        self.Points.text = String(pointIncrease)
+    }
+    
+    func point_dncrease(){
+        pointIncrease = pointIncrease - 10
+        self.Points.text = String(pointIncrease)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Player.myDelegate = self
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
         dynamicItemBehavior = UIDynamicItemBehavior(items: [])
-        var pointIncrease = 0
         var imageArray: [UIImage]!
-      //  let randomCar = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
         imageArray = [UIImage(named: "road1.png")!,
                       UIImage(named: "road2.png")!,
                       UIImage(named: "road3.png")!,
@@ -65,7 +91,7 @@ class ViewController: UIViewController, subviewDelegate {
                       UIImage(named: "road20.png")!]
         road.image = UIImage.animatedImage(with: imageArray, duration: 1)
         
-            for index in 0...17{
+            for index in 0...16{
                 let delay = Double(randomCar[index])
                 let when = DispatchTime.now() + delay
                 DispatchQueue.main.asyncAfter(deadline: when)
@@ -74,7 +100,6 @@ class ViewController: UIViewController, subviewDelegate {
                     let xPosition = arc4random_uniform(250) + 50
                     let carView = UIImageView(image: nil)
                     
-                   
                     switch (random_Car){
                         case 1:
                             carView.image = UIImage(named: "car1.png")
@@ -97,45 +122,23 @@ class ViewController: UIViewController, subviewDelegate {
                         default:
                             carView.image = UIImage(named: "car1.png")
                     }
-                    carView.frame = CGRect(x:Int(xPosition), y: 20, width: 40, height: 50)
+                    carView.frame = CGRect(x:Int(xPosition), y: 20, width: 60, height: 60)
                     self.view.addSubview(carView)
                     self.view.bringSubview(toFront: carView)
                     self.dynamicItemBehavior.addItem(carView)
-                    self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 0, y: 800), for: carView)
+                    self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 0, y: 600), for: carView)
                     self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
-                    pointIncrease = pointIncrease + 10
-                    self.Points.text = String(pointIncrease)
                     self.collisionBehavior = UICollisionBehavior(items: [carView])
-                    self.collisionBehavior.addItem(carView)
                     self.collisionBehavior.addBoundary(withIdentifier: "barrier" as
                         NSCopying, for: UIBezierPath(rect: self.Player.frame))
-                   //self.collisionBehavior.translatesReferenceBoundsIntoBoundary = true
+                   self.dynamicAnimator.addBehavior(self.dynamicItemBehavior)
                    self.dynamicAnimator.addBehavior(self.collisionBehavior)
-                  // self.collisionBehavior.addBoundary(withIdentifier: "main", for: self.Player.frame)
-                    if (self.Player.frame.intersects(carView.frame) == true){
-                        self.view.backgroundColor = UIColor.black
-                        self.Points.text = "0"
-                        self.Points.isHidden = true
-                        self.road.isHidden = true
-                        self.Player.isHidden = true
-                        self.playAgain.isHidden = false
-                        self.gameOver.isHidden = false
-                        self.FinalScore.text = (self.FinalScore.text! + String(pointIncrease))
-                        self.FinalScore.isHidden = false
-                    }
+                   self.point_Increase()
                 }
             }
        let GameOver = DispatchTime.now() + 20
             DispatchQueue.main.asyncAfter(deadline: GameOver){
-            self.view.backgroundColor = UIColor.black
-            self.Points.text = "0"
-            self.Points.isHidden = true
-            self.road.isHidden = true
-            self.Player.isHidden = true
-            self.playAgain.isHidden = false
-            self.gameOver.isHidden = false
-            self.FinalScore.text = (self.FinalScore.text! + String(pointIncrease))
-            self.FinalScore.isHidden = false
+                self.game_Over()
         }
     }
     override func didReceiveMemoryWarning() {
