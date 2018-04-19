@@ -16,6 +16,12 @@ class ViewController: UIViewController, subviewDelegate {
         collisionBehavior.removeAllBoundaries()
         self.collisionBehavior.addBoundary(withIdentifier: "barrier" as
             NSCopying, for: UIBezierPath(rect: self.Player.frame))
+        
+        for cars in score{
+            if(Player.frame.intersects(cars.frame)){
+                point_decrease()
+            }
+        }
 
         }
     
@@ -41,6 +47,7 @@ class ViewController: UIViewController, subviewDelegate {
         viewDidLoad()
     }
     
+    var score:  [UIImageView] = []
     var pointIncrease = 0
     let randomCar = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
     
@@ -60,7 +67,7 @@ class ViewController: UIViewController, subviewDelegate {
         self.Points.text = String(pointIncrease)
     }
     
-    func point_dncrease(){
+    func point_decrease(){
         pointIncrease = pointIncrease - 10
         self.Points.text = String(pointIncrease)
     }
@@ -146,7 +153,7 @@ class ViewController: UIViewController, subviewDelegate {
                     
                 }
             }
-       let GameOver = DispatchTime.now() + 20
+       let GameOver = DispatchTime.now() + 1
             DispatchQueue.main.asyncAfter(deadline: GameOver){
                 self.game_Over()
         }
