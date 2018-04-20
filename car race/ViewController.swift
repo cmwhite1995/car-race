@@ -35,6 +35,7 @@ class ViewController: UIViewController, subviewDelegate {
     @IBOutlet weak var Points: UILabel!
     @IBOutlet weak var FinalScore: UILabel!
     @IBAction func PlayAgainAction(_ sender: Any) {
+        viewDidLoad()
         pointIncrease = 0
         Points.text = "0"
         FinalScore.text = "Final Score:"
@@ -44,7 +45,7 @@ class ViewController: UIViewController, subviewDelegate {
         playAgain.isHidden = true
         gameOver.isHidden = true
         FinalScore.isHidden = true
-        viewDidLoad()
+       
     }
     
     var score:  [UIImageView] = []
@@ -153,7 +154,7 @@ class ViewController: UIViewController, subviewDelegate {
                     
                 }
             }
-       let GameOver = DispatchTime.now() + 1
+       let GameOver = DispatchTime.now() + 20
             DispatchQueue.main.asyncAfter(deadline: GameOver){
                 self.game_Over()
         }
